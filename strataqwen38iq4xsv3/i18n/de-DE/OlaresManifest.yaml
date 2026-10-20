@@ -3,6 +3,8 @@ metadata:
   description: "Qwen3.8-Flash-Next für Textgenerierung, Schlussfolgern und Werkzeugaufrufe, lokal mit Strata"
 spec:
   upgradeDescription: |
+    Zeigt die von diesem Modell unterstützten Denkstufen (`low`, `medium`, `xhigh`; Standard `xhigh`) auf der Modellkarte an, damit kompatible Apps sie anbieten können.
+
     Speichert MTP-Entwurfsmodelldateien und vorbereitete Modelldateien beim gemeinsamen Hugging-Face-Modellcache.
 
     Vorhandene Strata-Cachedateien werden nicht automatisch migriert. Um sie wiederzuverwenden, kopieren Sie den Inhalt des bisherigen Strata-Cacheverzeichnisses vor dem Start der aktualisierten App nach `huggingface/strata/strataqwen38iq4xsv3` im gemeinsamen App-Verzeichnis. Andernfalls werden die erforderlichen Dateien beim ersten Start erneut heruntergeladen und vorbereitet.

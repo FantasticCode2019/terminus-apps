@@ -3,6 +3,8 @@ metadata:
   description: "Qwen3.8-Flash-Next pour générer du texte, raisonner et appeler des outils, en local avec Strata"
 spec:
   upgradeDescription: |
+    Affiche sur la fiche du modèle les niveaux de raisonnement qu’il prend en charge (`low`, `medium`, `xhigh` ; par défaut `xhigh`), afin que les applications compatibles puissent les proposer.
+
     Stocke les fichiers du modèle de brouillon MTP et les fichiers de modèle préparés avec le cache partagé des modèles Hugging Face.
 
     Les fichiers existants du cache Strata ne sont pas migrés automatiquement. Pour les réutiliser, copiez le contenu de l’ancien répertoire de cache Strata dans `huggingface/strata/strataqwen38iq4xsv3`, dans le répertoire partagé des applications, avant de démarrer l’application mise à jour. Sinon, les fichiers nécessaires seront téléchargés et préparés à nouveau au premier démarrage.

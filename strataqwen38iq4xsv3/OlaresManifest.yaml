@@ -7,7 +7,7 @@ metadata:
   description: "Qwen3.8-Flash-Next for text generation, reasoning, and tool calling, powered locally by Strata"
   appid: strataqwen38iq4xsv3
   title: Qwen3.8-Flash-Next (Strata)
-  version: 0.0.4
+  version: 0.0.5
   categories:
   - AI
   - models
@@ -36,6 +36,8 @@ spec:
   onlyAdmin: true
   versionName: Qwen3.8-Flash-Next UD-IQ4_XS
   upgradeDescription: |
+    Shows the reasoning levels this model supports (`low`, `medium`, `xhigh`; default `xhigh`) on its model card, so compatible applications can offer them.
+
     Stores MTP draft-model files and prepared model files alongside the shared Hugging Face model cache.
 
     Existing Strata cache files are not migrated automatically. To reuse them, copy the contents of the old Strata cache directory to `huggingface/strata/strataqwen38iq4xsv3` in the shared app directory before starting the updated app. Otherwise, the first startup downloads and prepares the required files again.
@@ -130,6 +132,26 @@ envs:
   editable: false
   applyOnChange: false
   default: thinking,tools
+# Not editable: the chat template knows low / medium / xhigh. Strata also
+# accepts high and max, but folds both into xhigh, so listing them would only
+# repeat a level.
+- envName: MODEL_REASONING_EFFORT
+  required: false
+  type: string
+  editable: false
+  applyOnChange: false
+  default: low,medium,xhigh
+  description: The reasoning_effort levels this model accepts, published on the model card so clients can read them instead of guessing.
+# The level the template already uses when a request carries no
+# reasoning_effort (the chart sets no Strata config default). It is published,
+# never injected, so it has to match the engine's real default.
+- envName: MODEL_REASONING_EFFORT_DEFAULT
+  required: false
+  type: string
+  editable: false
+  applyOnChange: false
+  default: xhigh
+  description: The level this model uses when a request does not ask for one.
 - envName: ENGINE_ARGS
   required: true
   type: string

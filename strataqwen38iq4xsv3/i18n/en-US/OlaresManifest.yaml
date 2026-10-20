@@ -3,6 +3,8 @@ metadata:
   description: "Qwen3.8-Flash-Next for text generation, reasoning, and tool calling, powered locally by Strata"
 spec:
   upgradeDescription: |
+    Shows the reasoning levels this model supports (`low`, `medium`, `xhigh`; default `xhigh`) on its model card, so compatible applications can offer them.
+
     Stores MTP draft-model files and prepared model files alongside the shared Hugging Face model cache.
 
     Existing Strata cache files are not migrated automatically. To reuse them, copy the contents of the old Strata cache directory to `huggingface/strata/strataqwen38iq4xsv3` in the shared app directory before starting the updated app. Otherwise, the first startup downloads and prepares the required files again.

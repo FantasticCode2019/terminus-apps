@@ -7,7 +7,7 @@ metadata:
   description: "A local AI model for text, image understanding, and tasks that use tools. Fixed multi-node startup by scheduling llm-init and the inference engine on the same node to share local run-state."
   appid: ollamamuseglimmer30bdflashv3
   title: Muse Glimmer 30B DFlash
-  version: '1.0.14'
+  version: '1.0.15'
   categories:
     - AI
     - models
@@ -146,6 +146,27 @@ envs:
       value: thinking
     - title: None
       value: none
+  # Not editable: the model is trained on low / medium / high / xhigh, but
+  # Ollama's `think` only spells low / medium / high / max. xhigh reaches the
+  # renderer as plain `true` (= high), and max is a strength the model never
+  # saw, so neither is published.
+  - envName: MODEL_REASONING_EFFORT
+    required: false
+    type: string
+    editable: false
+    applyOnChange: false
+    default: "low,medium,high"
+    description:  "The reasoning_effort levels this model accepts, published on the model card so clients can read them instead of guessing."
+  # The strength Ollama's glimmer renderer writes when a request carries no
+  # reasoning_effort. It is published, never injected: nothing in the chain
+  # writes it into a request, so it has to match the engine's real default.
+  - envName: MODEL_REASONING_EFFORT_DEFAULT
+    required: false
+    type: string
+    editable: false
+    applyOnChange: false
+    default: "high"
+    description:  "The level this model uses when a request does not ask for one."
   - envName: ENGINE_ARGS
     required: true
     default: "OLLAMA_KEEP_ALIVE=-1 OLLAMA_CONTEXT_LENGTH=131072 OLLAMA_FLASH_ATTENTION=1 OLLAMA_KV_CACHE_TYPE=q8_0 OLLAMA_NUM_PARALLEL=1"

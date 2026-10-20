@@ -3,6 +3,8 @@ metadata:
   description: "Strataでローカル実行する、テキスト生成・推論・ツール呼び出しに対応したQwen3.8-Flash-Next"
 spec:
   upgradeDescription: |
+    このモデルが対応する推論レベル（`low`、`medium`、`xhigh`、既定値 `xhigh`）をモデルカードに表示し、対応アプリで選択できるようにします。
+
     MTPドラフトモデルのファイルと準備済みモデルファイルを、共有Hugging Faceモデルキャッシュと同じ場所に保存します。
 
     既存のStrataキャッシュは自動移行されません。再利用するには、更新後のアプリを起動する前に、旧Strataキャッシュディレクトリの内容を共有アプリディレクトリ内の`huggingface/strata/strataqwen38iq4xsv3`にコピーしてください。コピーしない場合、初回起動時に必要なファイルを再ダウンロードして準備します。
