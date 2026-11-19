@@ -4,6 +4,20 @@ metadata:
 
 spec:
   upgradeDescription: |
+    v1.3.28: Completate le note cumulative di Ollama v0.33.1 → v0.40.16. Il motore resta a v0.40.16, già incluso nell'app v1.3.27.
+
+    - v0.33.2–v0.33.3: Token del prompt in cache, valori predefiniti GGUF e immagini/audio Gemma 4 su MLX.
+    - v0.34.0–v0.34.4: Ricerca strumenti e compattazione compatibili OpenAI, controlli di ragionamento nei metadati, liste più rapide e output strutturato in un passaggio. Creare GGUF da safetensors richiede conversione/quantizzazione con llama.cpp; `typical_p` è deprecato.
+    - v0.35.0–v0.35.1: Modelli decisionali tramite `/v1/systemone`, incluso Clef multimodale; dichiarazioni `CAPABILITY` e correzione dei download MLX bloccati.
+    - v0.40.0–v0.40.4: MLX predefinito per modelli compatibili su Apple silicon; CLI decisionale ed embedding multimodali tramite llama-server. La migrazione in background di v0.40.2 è sospesa in v0.40.3; i backup conservati possono aumentare temporaneamente lo spazio su disco.
+    - v0.40.5–v0.40.13: Nemotron 3.5, Flint, LFM3 e famiglie decisionali; Flint arriva su Linux/Windows in v0.40.9 e LFM3 in v0.40.13. Miglioramenti a decodifica speculativa, ordine degli strumenti, continuazione delle conversazioni, errori streaming e annullamento remoto alla disconnessione.
+    - v0.40.14–v0.40.16: MiMo V2.6 e Ripple Preview; richieste concorrenti per GGUF ricorrenti/visivi e correzioni Qwen YaRN. OpenAI conserva i valori di campionamento del modello; `/v1/responses` rispetta `truncation` senza troncamento silenzioso predefinito; `/v1/models` restituisce una lista vuota senza modelli installati.
+
+    Le funzioni specifiche della piattaforma, come MLX su Apple silicon e voce su macOS, non implicano disponibilità in questo container Linux. llama.cpp e MLX ricevono aggiornamenti durante tutto l'intervallo.
+
+    https://github.com/ollama/ollama/releases
+    https://github.com/ollama/ollama/compare/v0.33.1...v0.40.16
+
     v1.3.27: Ollama aggiornato da v0.33.1 a v0.40.16.
 
     Novità principali di Ollama v0.40.16:

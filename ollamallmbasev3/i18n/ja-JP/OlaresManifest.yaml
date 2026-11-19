@@ -4,6 +4,20 @@ metadata:
 
 spec:
   upgradeDescription: |
+    v1.3.28: Ollama v0.33.1 → v0.40.16 の累積リリースノートを補完。エンジンはアプリ v1.3.27 で導入済みの v0.40.16 を維持します。
+
+    - v0.33.2–v0.33.3: キャッシュ済みプロンプトトークンの報告、GGUF の既定値への対応、MLX 上の Gemma 4 画像・音声対応。
+    - v0.34.0–v0.34.4: OpenAI 互換のツール検索と応答圧縮、モデルメタデータの思考制御、一覧取得の高速化、思考モデルの構造化出力を単一パス化。safetensors からの GGUF 作成には llama.cpp の変換・量子化ツールが必要。`typical_p` は非推奨。
+    - v0.35.0–v0.35.1: `/v1/systemone` による意思決定モデルとマルチモーダル Clef、Modelfile の `CAPABILITY` 宣言、MLX ダウンロード停止の修正。
+    - v0.40.0–v0.40.4: Apple silicon の対応モデルは MLX を標準使用。意思決定モデル CLI と llama-server のマルチモーダル埋め込みを追加。v0.40.2 のバックグラウンド移行は v0.40.3 で停止され、移行済みモデルのバックアップによりディスク使用量が一時的に増える場合があります。
+    - v0.40.5–v0.40.13: Nemotron 3.5、Flint、LFM3、意思決定モデル群を追加。Flint は v0.40.9、LFM3 は v0.40.13 で Linux/Windows に対応。投機的デコード、ツール順序、会話継続、ストリーミングエラー報告、切断時のリモート要求キャンセルを改善。
+    - v0.40.14–v0.40.16: MiMo V2.6、Ripple Preview、再帰型・視覚 GGUF モデルの同時要求、Qwen YaRN 修正。OpenAI エンドポイントはモデルのサンプリング既定値を維持し、`/v1/responses` は `truncation` に従い既定で無通知の切り詰めを行いません。モデル未導入時の `/v1/models` は空リストを返します。
+
+    Apple silicon の MLX や macOS 音声など、プラットフォーム固有機能が本 Linux コンテナーで利用できるとは限りません。この期間には llama.cpp と MLX も継続的に更新されています。
+
+    https://github.com/ollama/ollama/releases
+    https://github.com/ollama/ollama/compare/v0.33.1...v0.40.16
+
     v1.3.27: Ollama を v0.33.1 から v0.40.16 にアップグレードしました。
 
     Ollama v0.40.16 の主な更新：

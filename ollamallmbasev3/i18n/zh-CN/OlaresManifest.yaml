@@ -4,6 +4,20 @@ metadata:
 
 spec:
   upgradeDescription: |
+    v1.3.28：补齐 Ollama v0.33.1 → v0.40.16 的累计发布说明。引擎保持 v0.40.16，该版本已随应用 v1.3.27 发布。
+
+    - v0.33.2–v0.33.3：报告缓存的提示词 token，遵循 GGUF 模型默认参数，并为 MLX 上的 Gemma 4 增加图像和音频支持。
+    - v0.34.0–v0.34.4：新增 OpenAI 兼容的工具搜索和响应压缩；模型元数据暴露思考控制项；加快模型列表查询，将思考模型的结构化输出改为单次处理。从 safetensors 创建 GGUF 需使用 llama.cpp 转换和量化工具；`typical_p` 已弃用。
+    - v0.35.0–v0.35.1：通过 `/v1/systemone` 支持决策模型及多模态 Clef；支持 Modelfile `CAPABILITY` 声明，修复 MLX 下载停滞。
+    - v0.40.0–v0.40.4：Apple silicon 上受支持模型默认使用 MLX；新增决策模型 CLI 和 llama-server 多模态嵌入。v0.40.2 引入的后台模型迁移在 v0.40.3 暂停；已迁移模型保留备份，可能暂时增加磁盘占用。
+    - v0.40.5–v0.40.13：新增 Nemotron 3.5、Flint、LFM3 及决策模型系列；Flint 和 LFM3 分别在 v0.40.9、v0.40.13 支持 Linux/Windows。改进推测解码、工具调用顺序、对话续接、流式错误报告以及客户端断开后的远端请求取消。
+    - v0.40.14–v0.40.16：新增 MiMo V2.6、Ripple Preview；循环/视觉 GGUF 模型支持并发请求，修复 Qwen YaRN 处理。OpenAI 接口保留模型采样默认值；`/v1/responses` 遵循 `truncation`，默认不再静默截断；未安装模型时 `/v1/models` 返回空列表。
+
+    上游平台专属功能（包括 Apple silicon MLX 和 macOS 语音）不代表在本 Linux 容器中可用。此版本区间还持续更新了 llama.cpp 和 MLX。
+
+    https://github.com/ollama/ollama/releases
+    https://github.com/ollama/ollama/compare/v0.33.1...v0.40.16
+
     v1.3.27：将 Ollama 从 v0.33.1 升级至 v0.40.16。
 
     Ollama v0.40.16 更新亮点：

@@ -4,6 +4,20 @@ metadata:
 
 spec:
   upgradeDescription: |
+    v1.3.28: Se completan las notas acumuladas de Ollama v0.33.1 → v0.40.16. El motor sigue en v0.40.16, incluido en la app v1.3.27.
+
+    - v0.33.2–v0.33.3: Tokens de entrada en caché, valores predeterminados GGUF e imágenes/audio de Gemma 4 en MLX.
+    - v0.34.0–v0.34.4: Búsqueda de herramientas y compactación compatibles con OpenAI, controles de razonamiento en metadatos, listas más rápidas y salida estructurada en una pasada. Crear GGUF desde safetensors requiere conversión/cuantización con llama.cpp; `typical_p` está obsoleto.
+    - v0.35.0–v0.35.1: Modelos de decisión mediante `/v1/systemone`, incluido Clef multimodal; declaraciones `CAPABILITY` y corrección de descargas MLX bloqueadas.
+    - v0.40.0–v0.40.4: MLX predeterminado para modelos compatibles en Apple silicon; CLI de decisión y embeddings multimodales con llama-server. La migración en segundo plano de v0.40.2 se pausó en v0.40.3; las copias de seguridad pueden aumentar temporalmente el uso de disco.
+    - v0.40.5–v0.40.13: Nemotron 3.5, Flint, LFM3 y familias de decisión; Flint llega a Linux/Windows en v0.40.9 y LFM3 en v0.40.13. Mejoras de decodificación especulativa, orden de herramientas, continuación de conversaciones, errores de streaming y cancelación remota al desconectarse.
+    - v0.40.14–v0.40.16: MiMo V2.6 y Ripple Preview; concurrencia para GGUF recurrentes/visuales y correcciones Qwen YaRN. OpenAI conserva los valores de muestreo del modelo; `/v1/responses` respeta `truncation` sin truncar silenciosamente por defecto; `/v1/models` devuelve una lista vacía si no hay modelos.
+
+    Las funciones específicas de plataforma, como MLX en Apple silicon y voz en macOS, no implican disponibilidad en este contenedor Linux. También se actualizan llama.cpp y MLX durante este intervalo.
+
+    https://github.com/ollama/ollama/releases
+    https://github.com/ollama/ollama/compare/v0.33.1...v0.40.16
+
     v1.3.27: Ollama actualizado de v0.33.1 a v0.40.16.
 
     Novedades destacadas de Ollama v0.40.16:

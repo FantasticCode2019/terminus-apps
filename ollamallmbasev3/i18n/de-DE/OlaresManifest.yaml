@@ -4,6 +4,20 @@ metadata:
 
 spec:
   upgradeDescription: |
+    v1.3.28: Kumulative Hinweise für Ollama v0.33.1 → v0.40.16 ergänzt. Die Engine bleibt auf v0.40.16, bereits mit App v1.3.27 ausgeliefert.
+
+    - v0.33.2–v0.33.3: Meldung gecachter Prompt-Tokens, GGUF-Modellstandardwerte und Gemma-4-Bild-/Audiounterstützung auf MLX.
+    - v0.34.0–v0.34.4: OpenAI-kompatible Werkzeugsuche und Antwortkomprimierung, Thinking-Steuerung in Modellmetadaten, schnellere Modelllisten und strukturierte Ausgaben in einem Durchlauf. GGUF aus safetensors benötigt llama.cpp-Konvertierung/Quantisierung; `typical_p` ist veraltet.
+    - v0.35.0–v0.35.1: Entscheidungsmodelle über `/v1/systemone`, einschließlich multimodalem Clef; Modelfile-`CAPABILITY` und Korrektur hängender MLX-Downloads.
+    - v0.40.0–v0.40.4: MLX als Standard für unterstützte Apple-Silicon-Modelle; Entscheidungsmodell-CLI und multimodale Embeddings über llama-server. Die Hintergrundmigration aus v0.40.2 wurde in v0.40.3 pausiert; migrierte Modelle behalten Backups und können vorübergehend mehr Speicherplatz belegen.
+    - v0.40.5–v0.40.13: Nemotron 3.5, Flint, LFM3 und Entscheidungsmodelle; Flint ab v0.40.9 und LFM3 ab v0.40.13 auf Linux/Windows. Verbesserte spekulative Dekodierung, Tool-Reihenfolge, Gesprächsfortsetzung, Streaming-Fehler und Abbruch entfernter Anfragen bei Verbindungsende.
+    - v0.40.14–v0.40.16: MiMo V2.6 und Ripple Preview; parallele Anfragen für rekurrente/visuelle GGUF-Modelle und Qwen-YaRN-Korrekturen. OpenAI-Endpunkte behalten Sampling-Standardwerte; `/v1/responses` beachtet `truncation` ohne stilles Kürzen als Standard; `/v1/models` liefert ohne installierte Modelle eine leere Liste.
+
+    Plattformspezifische Funktionen wie Apple-Silicon-MLX und macOS-Sprache sind nicht automatisch im Linux-Container verfügbar. llama.cpp und MLX wurden fortlaufend aktualisiert.
+
+    https://github.com/ollama/ollama/releases
+    https://github.com/ollama/ollama/compare/v0.33.1...v0.40.16
+
     v1.3.27: Ollama von v0.33.1 auf v0.40.16 aktualisiert.
 
     Highlights von Ollama v0.40.16:
